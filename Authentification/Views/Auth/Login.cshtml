@@ -1,0 +1,26 @@
+﻿@model Authentification.Models.LoginData
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Аутентификация</h1>
+
+<form class="form-signin bg-white px-2 py-3 rounded" asp-action="Login" asp-controller="Auth" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly" />
+    <div class="text-danger h-3">@ViewBag.Warning</div>
+    <div class="form-group">
+        <label asp-for="Login" class="sr-only"></label>
+        <input type="text" asp-for="Login" class="form-control" placeholder="Логин" />
+        <span asp-validation-for="Login" />
+    </div>
+    <div class="form-group m">
+        <label asp-for="Password" class="sr-only"></label>
+        <input asp-for="Password" class="form-control" placeholder="Пароль" />
+        <span asp-validation-for="Password" />
+    </div>
+    <div class="form-group mx-auto py-0 mb-0">
+        <input type="submit" value="Войти" class="btn btn-primary" />
+    </div>
+</form>
+<hr />
+<a class="mt-2" asp-action="Registration" asp-controller="Auth">Регистрация</a>
